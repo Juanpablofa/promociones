@@ -1,1 +1,1462 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forever Beauty | Descuentos en Cosmética y Cuidado Personal | Perú</title>
+    <meta name="description" content="¡Descuentos semanales en cosméticos y productos de belleza! Envíos a todo Perú. Compra seguro con garantía Forever Beauty.">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 15px;
+            background-color: #fff9fb;
+            color: #333;
+            line-height: 1.5;
+            font-size: 15px;
+        }
+        h1 {
+            color: #d23369;
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(210, 51, 105, 0.2);
+        }
+        .logo-container {
+            display: block;
+            margin: 0 auto;
+            width: 150px;
+        }
+        .logo {
+            max-width: 100%;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(210, 51, 105, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .logo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(210, 51, 105, 0.3);
+        }
+        .promo-banner {
+            background: linear-gradient(to right, #ff8a9d, #d23369);
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 15px 0;
+            font-weight: bold;
+            font-size: 16px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+        }
+        .promo-text {
+            text-align: center;
+            font-size: 15px;
+            margin: 12px 0;
+            color: #666;
+        }
+        
+        /* Filtros mejorados para móviles */
+        .filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin: 15px 0 20px;
+            justify-content: center;
+            padding: 0;
+        }
+        
+        .filter-btn {
+            background: white;
+            border: 1px solid #d23369;
+            color: #d23369;
+            padding: 6px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 12px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background: linear-gradient(to right, #d23369, #ff4081);
+            color: white;
+            border-color: transparent;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        /* Estilos para productos optimizados para móviles */
+        .product {
+            background: white;
+            padding: 12px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: transform 0.3s;
+            border: 1px solid #f0f0f0;
+            position: relative;
+        }
+        
+        .product:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(210, 51, 105, 0.2);
+        }
+        
+        .product img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            border: 1px solid #f0f0f0;
+            cursor: pointer;
+        }
+        
+        .product-name {
+            margin: 6px 0;
+            font-weight: bold;
+            color: #333;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 40px;
+        }
+        
+        /* Categorías mejoradas */
+        .product-category {
+            display: inline-block;
+            background: #f0f0f0;
+            color: #666;
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-size: 10px;
+            margin: 4px 0 6px;
+            font-weight: 600;
+        }
+        
+        .category-perfume { background: #e8f5e9; color: #2e7d32; border: 1px solid #c8e6c9; }
+        .category-skincare { background: #e3f2fd; color: #1565c0; border: 1px solid #bbdefb; }
+        .category-makeup { background: #f3e5f5; color: #7b1fa2; border: 1px solid #e1bee7; }
+        .category-hair { background: #fff8e1; color: #ff8f00; border: 1px solid #ffecb3; }
+        
+        .product-price {
+            color: #d23369;
+            font-weight: bold;
+            font-size: 16px;
+            margin: 6px 0 8px;
+        }
+        
+        .price-symbol {
+            font-size: 0.9em;
+            margin-right: 2px;
+        }
+        
+        .old-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 13px;
+            display: block;
+        }
+        
+        .sales-badge {
+            background: #ffeb3b;
+            color: #333;
+            padding: 2px 6px;
+            border-radius: 8px;
+            font-size: 11px;
+            display: inline-block;
+            margin-bottom: 4px;
+        }
+        
+        .sold-out-badge {
+            background: #f44336;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 8px;
+            font-size: 11px;
+            display: inline-block;
+            margin-bottom: 4px;
+            position: absolute;
+            top: 8px;
+            right: 8px;
+        }
+        
+        .product-buttons {
+            margin-top: 12px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Estilos mejorados para quick-order en móviles */
+        .quick-order {
+            background: #25D366;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+            transition: all 0.3s;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
 
+        .quick-order img {
+            width: 16px;
+            height: 16px;
+            margin-right: 6px;
+            vertical-align: middle;
+            filter: brightness(0) invert(1);
+        }
+
+        .quick-order:hover {
+            background: #128C7E;
+            transform: scale(1.02);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+        }
+        
+        .whatsapp-float {
+            position: fixed;
+            bottom: 15px;
+            right: 15px;
+            background: #25D366;
+            color: white;
+            padding: 10px 12px 10px 12px;
+            border-radius: 50px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        .whatsapp-float img {
+            width: 20px;
+            margin-right: 6px;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 25px;
+            padding: 12px;
+            color: #666;
+            font-size: 13px;
+            border-top: 1px solid #eee;
+            line-height: 1.4;
+        }
+        
+        .date-range {
+            font-weight: bold;
+            color: #d23369;
+            font-size: 15px;
+        }
+        
+        /* Estilos para el panel de control en móviles */
+       .admin-panel {
+        position: fixed;
+        bottom: 80px; /* Encima del botón de WhatsApp */
+        right: 20px;
+        z-index: 1000;
+    }
+        
+
+        .admin-btn {
+        background: #d23369;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 50px;
+        cursor: pointer;
+        font-weight: bold;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        opacity: 0.8;
+        transition: all 0.3s;
+    }
+
+.admin-btn:hover {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+        
+        .admin-panel-content {
+            display: none;
+            position: fixed;
+            top: 50px;
+            left: 10px;
+            width: calc(100% - 20px);
+            max-height: 80vh;
+            overflow-y: auto;
+            background: white;
+            padding: 12px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+        
+        .admin-panel-content h3 {
+            color: #d23369;
+            margin-top: 0;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+            font-size: 16px;
+        }
+        
+        .admin-section {
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .admin-section:last-child {
+            border-bottom: none;
+        }
+        
+        .admin-form-group {
+            margin-bottom: 8px;
+        }
+        
+        .admin-form-group label {
+            display: block;
+            margin-bottom: 4px;
+            font-weight: bold;
+            font-size: 13px;
+        }
+        
+        .admin-form-group input, 
+        .admin-form-group select, 
+        .admin-form-group textarea {
+            width: 100%;
+            padding: 7px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+        
+        .admin-form-group textarea {
+            height: 60px;
+            resize: vertical;
+        }
+        
+        .admin-save-btn {
+            background: #d23369;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 8px;
+            font-size: 13px;
+        }
+        
+        .admin-save-btn:hover {
+            background: #b52a5a;
+        }
+        
+        .product-controls {
+            background: #f9f9f9;
+            padding: 8px;
+            border-radius: 5px;
+            margin-top: 8px;
+        }
+        
+        .product-item {
+            margin-bottom: 8px;
+            padding-bottom: 8px;
+            border-bottom: 1px dashed #ddd;
+        }
+        
+        .product-item:last-child {
+            border-bottom: none;
+        }
+        
+        .add-product-btn {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 8px;
+            font-size: 13px;
+        }
+        
+        .remove-product-btn {
+            background: #f44336;
+            color: white;
+            border: none;
+            padding: 4px 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 11px;
+            margin-left: 5px;
+        }
+        
+        .login-form {
+            padding: 12px;
+            background: #f9f9f9;
+            border-radius: 5px;
+        }
+        
+        .backup-section {
+            margin-top: 15px;
+            padding-top: 12px;
+            border-top: 1px solid #eee;
+        }
+        
+        .backup-buttons {
+            display: flex;
+            gap: 8px;
+            margin-top: 8px;
+        }
+        
+        .backup-btn {
+            flex: 1;
+            padding: 7px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+            font-size: 13px;
+        }
+        
+        .export-btn {
+            background: #2196F3;
+            color: white;
+        }
+        
+        .export-btn:hover {
+            background: #0b7dda;
+        }
+        
+        .import-btn {
+            background: #4CAF50;
+            color: white;
+        }
+        
+        .import-btn:hover {
+            background: #3e8e41;
+        }
+        
+        .file-input {
+            display: none;
+        }
+        
+        /* Estilos para categorías personalizadas */
+        .custom-categories {
+            margin-top: 12px;
+        }
+        
+        .custom-category-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        
+        .custom-category-item input {
+            flex: 1;
+            margin-right: 5px;
+            padding: 6px;
+            font-size: 13px;
+        }
+        
+        .remove-category-btn {
+            background: #f44336;
+            color: white;
+            border: none;
+            padding: 3px 6px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 11px;
+        }
+        
+        .add-category-btn {
+            background: #2196F3;
+            color: white;
+            border: none;
+            padding: 5px 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+ /* Estilo para el botón de borrar localStorage */
+    .clear-storage-btn {
+        background: #f44336;
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+        margin-top: 10px;
+        width: 100%;
+    }
+        
+        /* Media query para tablets y pantallas más grandes */
+        @media (min-width: 600px) {
+            body {
+                padding: 20px;
+                font-size: 16px;
+            }
+            
+            h1 {
+                font-size: 28px;
+            }
+            
+            .logo-container {
+                width: 180px;
+            }
+            
+            .promo-banner {
+                font-size: 18px;
+                padding: 12px;
+            }
+            
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            
+            .filter-btn {
+                padding: 8px 15px;
+                font-size: 13px;
+            }
+            
+            .quick-order {
+                padding: 10px 15px;
+                font-size: 14px;
+            }
+            
+            .admin-panel-content {
+                width: 350px;
+                left: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Botón de acceso al panel de administración -->
+    <div class="admin-panel">
+        <button class="admin-btn" onclick="toggleAdminPanel()">Panel de Control</button>
+        <div class="admin-panel-content" id="adminPanel">
+            <div id="loginSection">
+                <h3>Acceso al Panel</h3>
+                <div class="login-form">
+                    <div class="admin-form-group">
+                        <label for="adminPassword">Contraseña:</label>
+                        <input type="password" id="adminPassword" placeholder="Ingrese la contraseña">
+                    </div>
+                    <button class="admin-save-btn" onclick="loginAdmin()">Ingresar</button>
+                </div>
+            </div>
+            
+            <div id="adminSection" style="display:none;">
+                <h3>Panel de Control Forever Beauty</h3>
+                
+                <div class="admin-section">
+                    <h4>Configuración General</h4>
+                    <div class="admin-form-group">
+                        <label for="pageTitle">Título de la Página:</label>
+                        <input type="text" id="pageTitle" value="Forever Beauty Descuentos">
+                    </div>
+                    <div class="admin-form-group">
+                        <label for="promoBanner">Texto del Banner Promocional:</label>
+                        <input type="text" id="promoBanner" value="⏰ OFERTA LIMITADA | Solo hasta agotar existencias">
+                    </div>
+                    <div class="admin-form-group">
+                        <label for="dateRange">Rango de Fechas:</label>
+                        <input type="text" id="dateRange" value="Semana del 12 al 18 de Junio">
+                    </div>
+                    <button class="admin-save-btn" onclick="saveGeneralSettings()">Guardar Configuración</button>
+                </div>
+                
+                <div class="admin-section">
+                    <h4>Administrar Productos</h4>
+                    <div class="product-controls" id="productControls">
+                        <!-- Los productos se cargarán aquí dinámicamente -->
+                    </div>
+                    <button class="add-product-btn" onclick="addNewProduct()">+ Agregar Nuevo Producto</button>
+                </div>
+                
+                <div class="admin-section">
+                    <h4>Administrar Categorías</h4>
+                    <div class="admin-form-group">
+                        <label>Categorías Actuales:</label>
+                        <div class="custom-categories" id="customCategories">
+                            <!-- Las categorías se cargarán aquí dinámicamente -->
+                        </div>
+                        <button class="add-category-btn" onclick="addNewCategory()">+ Agregar Categoría</button>
+                    </div>
+                </div>
+                
+                <div class="admin-section">
+                    <h4>Configuración de WhatsApp</h4>
+                    <div class="admin-form-group">
+                        <label for="whatsappNumber">Número de WhatsApp:</label>
+                        <input type="text" id="whatsappNumber" value="51957196122">
+                    </div>
+                    <div class="admin-form-group">
+                        <label for="whatsappMessage">Mensaje Predeterminado:</label>
+                        <textarea id="whatsappMessage">¡Hola Forever Beauty! Estoy interesad@ en el producto:\n\n*{producto}*\nPrecio: S/.{precio}\n\n¿Podrías darme más información? ¿Tienen envíos a mi distrito?</textarea>
+                    </div>
+                    <button class="admin-save-btn" onclick="saveWhatsappSettings()">Guardar Configuración WhatsApp</button>
+                </div>
+
+                <div class="admin-section">
+                    <h4>Copia de Seguridad</h4>
+                    <div class="backup-section">
+                        <p>Exportar o importar todos los datos (productos y configuración):</p>
+                        <div class="backup-buttons">
+                            <button class="backup-btn export-btn" onclick="exportBackup()">Exportar Backup</button>
+                            <button class="backup-btn import-btn" onclick="document.getElementById('fileInput').click()">Importar Backup</button>
+                            <input type="file" id="fileInput" class="file-input" accept=".json" onchange="importBackup(this)">
+                        </div>
+</div>
+        <button class="clear-storage-btn" onclick="clearLocalStorage()">Borrar todos los datos</button>
+        <p style="font-size:12px; color:#f44336; margin-top:5px;">¡Precaución! Esto eliminará todos los productos y configuraciones.</p>
+    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <h1 id="mainTitle">Forever Beauty Descuentos</h1>
+    
+    <a href="https://www.facebook.com/ForeverBeautyDescuentos" target="_blank" class="logo-container">
+        <img src="logo.jpg" alt="Forever Beauty Logo" class="logo">
+    </a>
+    
+    <div class="promo-banner" id="promoBannerElement">
+        ⏰ <strong>OFERTA LIMITADA</strong> | Solo hasta agotar existencias
+    </div>
+    
+    <p class="promo-text">Nuestros descuentos de la <span class="date-range" id="dateRangeText">Semana del 12 al 18 de Junio</span></p>
+    
+    <!-- Filtros por categoría -->
+    <div class="filters" id="categoryFilters">
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="skincare">Cuidado Facial</button>
+        <button class="filter-btn" data-filter="makeup">Maquillaje</button>
+        <button class="filter-btn" data-filter="perfume">Perfumes</button>
+        <button class="filter-btn" data-filter="hair">Cuidado Capilar</button>
+    </div>
+    
+    <div class="product-grid" id="productGrid">
+        <!-- Los productos se cargarán aquí dinámicamente -->
+    </div>
+
+    <!-- Botón flotante de WhatsApp -->
+    <a href="https://wa.me/51957196122?text=¡Hola!%20Quiero%20aprovechar%20los%20descuentos%20de%20Forever%20Beauty" class="whatsapp-float" id="whatsappFloat">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"> 
+        ¡Haz tu Pedido!
+    </a>
+
+    <div class="footer">
+        © 2023 Forever Beauty Perú | Envíos a todo el Perú (Preguntar Restricciones y Costos) | Garantía de satisfacción
+    </div>
+
+    <script>
+        // Datos de productos (almacenados en localStorage)
+        let productsData = JSON.parse(localStorage.getItem('foreverBeautyProducts')) || [
+            {
+                id: 1,
+                name: "Suero de Ácido Hialurónico",
+                category: "skincare",
+                image: "producto1.jpg",
+                price: "79.90",
+                oldPrice: "120.00",
+                badge: "🔥 128 vendidos",
+                soldOut: false
+            },
+            {
+                id: 2,
+                name: "Crema Antiarrugas Noche",
+                category: "skincare",
+                image: "producto2.jpg",
+                price: "89.90",
+                oldPrice: "135.00",
+                badge: "✨ Más vendido",
+                soldOut: false
+            },
+            {
+                id: 3,
+                name: "Kit Completo de Maquillaje",
+                category: "makeup",
+                image: "producto3.jpg",
+                price: "149.90",
+                oldPrice: "220.00",
+                badge: "🆕 Nuevo lanzamiento",
+                soldOut: false
+            },
+            {
+                id: 4,
+                name: "Paleta de Sombras Profesional",
+                category: "makeup",
+                image: "producto4.jpg",
+                price: "99.90",
+                oldPrice: "149.00",
+                badge: "💖 30% OFF",
+                soldOut: true
+            },
+            {
+                id: 5,
+                name: "Perfume Floral Eau de Parfum",
+                category: "perfume",
+                image: "producto5.jpg",
+                price: "129.90",
+                oldPrice: "189.00",
+                badge: "🌸 Nuevo aroma",
+                soldOut: false
+            },
+            {
+                id: 6,
+                name: "Shampoo Reconstrucción Capilar",
+                category: "hair",
+                image: "producto6.jpg",
+                price: "69.90",
+                oldPrice: "99.00",
+                badge: "💇‍♀️ Recomendado",
+                soldOut: false
+            },
+{
+                id: 7,
+                name: "Shampoo Reconstrucción Capilar",
+                category: "hair",
+                image: "producto7.jpg",
+                price: "69.90",
+                oldPrice: "99.00",
+                badge: "💇‍♀️ Recomendado",
+                soldOut: false
+            },
+{
+                id: 8,
+                name: "Shampoo Reconstrucción Capilar",
+                category: "hair",
+                image: "producto8.jpg",
+                price: "69.90",
+                oldPrice: "99.00",
+                badge: "💇‍♀️ Recomendado",
+                soldOut: false
+            },
+{
+                id: 9,
+                name: "Shampoo Reconstrucción Capilar",
+                category: "hair",
+                image: "producto9.jpg",
+                price: "69.90",
+                oldPrice: "99.00",
+                badge: "💇‍♀️ Recomendado",
+                soldOut: false
+            },
+{
+                id: 10,
+                name: "Shampoo Reconstrucción Capilar",
+                category: "hair",
+                image: "producto10.jpg",
+                price: "69.90",
+                oldPrice: "99.00",
+                badge: "💇‍♀️ Recomendado",
+                soldOut: false
+            },
+{
+                id: 11,
+                name: "Shampoo Reconstrucción Capilar",
+                category: "hair",
+                image: "producto11.jpg",
+                price: "69.90",
+                oldPrice: "99.00",
+                badge: "💇‍♀️ Recomendado",
+                soldOut: false
+            },
+{
+                id: 12,
+                name: "Shampoo Reconstrucción Capilar",
+                category: "hair",
+                image: "producto12.jpg",
+                price: "69.90",
+                oldPrice: "99.00",
+                badge: "💇‍♀️ Recomendado",
+                soldOut: false
+            },
+{
+                id: 13,
+                name: "Shampoo Reconstrucción Capilar",
+                category: "hair",
+                image: "producto13.jpg",
+                price: "69.90",
+                oldPrice: "99.00",
+                badge: "💇‍♀️ Recomendado",
+                soldOut: false
+            },
+{
+                id: 14,
+                name: "Shampoo Reconstrucción Capilar",
+                category: "hair",
+                image: "producto14.jpg",
+                price: "69.90",
+                oldPrice: "99.00",
+                badge: "💇‍♀️ Recomendado",
+                soldOut: false
+            },
+{
+                id: 15,
+                name: "Shampoo Reconstrucción Capilar",
+                category: "hair",
+                image: "producto15.jpg",
+                price: "69.90",
+                oldPrice: "99.00",
+                badge: "💇‍♀️ Recomendado",
+                soldOut: false
+            },
+ {
+                id: 16,
+                name: "Shampoo Reconstrucción Capilar",
+                category: "hair",
+                image: "producto16.jpg",
+                price: "69.90",
+                oldPrice: "99.00",
+                badge: "💇‍♀️ Recomendado",
+                soldOut: false
+            },
+{
+                id: 17,
+                name: "Shampoo Reconstrucción Capilar",
+                category: "hair",
+                image: "producto17.jpg",
+                price: "69.90",
+                oldPrice: "99.00",
+                badge: "💇‍♀️ Recomendado",
+                soldOut: false
+            },
+{
+                id: 18,
+                name: "Shampoo Reconstrucción Capilar",
+                category: "hair",
+                image: "producto18.jpg",
+                price: "69.90",
+                oldPrice: "99.00",
+                badge: "💇‍♀️ Recomendado",
+                soldOut: false
+            },
+{
+                id: 19,
+                name: "Shampoo Reconstrucción Capilar",
+                category: "hair",
+                image: "producto19.jpg",
+                price: "69.90",
+                oldPrice: "99.00",
+                badge: "💇‍♀️ Recomendado",
+                soldOut: false
+            },
+        ];
+
+        // Configuración general (almacenada en localStorage)
+        let generalSettings = JSON.parse(localStorage.getItem('foreverBeautySettings')) || {
+            pageTitle: "Forever Beauty Descuentos",
+            promoBanner: "⏰ OFERTA LIMITADA | Solo hasta agotar existencias",
+            dateRange: "Semana del 12 al 18 de Junio",
+            whatsappNumber: "51957196122",
+            whatsappMessage: "¡Hola Forever Beauty! Estoy interesad@ en el producto:\n\n*{producto}*\nPrecio: S/.{precio}\n\n¿Podrías darme más información? ¿Tienen envíos a mi distrito?",
+            customCategories: [
+                {id: "skincare", name: "Cuidado Facial", color: "#1565c0", bgColor: "#e3f2fd", borderColor: "#bbdefb"},
+                {id: "makeup", name: "Maquillaje", color: "#7b1fa2", bgColor: "#f3e5f5", borderColor: "#e1bee7"},
+                {id: "perfume", name: "Perfume", color: "#2e7d32", bgColor: "#e8f5e9", borderColor: "#c8e6c9"},
+                {id: "hair", name: "Cuidado Capilar", color: "#ff8f00", bgColor: "#fff8e1", borderColor: "#ffecb3"}
+            ]
+        };
+
+        // Contraseña simple para el panel de administración
+        const ADMIN_PASSWORD = "";
+
+        // Función para escapar HTML
+        function escapeHtml(unsafe) {
+            return unsafe
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+
+        // Función para alternar la visibilidad del panel de administración
+        function toggleAdminPanel() {
+            const panel = document.getElementById("adminPanel");
+            panel.style.display = panel.style.display === "none" ? "block" : "none";
+        }
+
+        // Función para iniciar sesión en el panel de administración
+        function loginAdmin() {
+            const password = document.getElementById("adminPassword").value;
+            
+            if (password === ADMIN_PASSWORD) {
+                document.getElementById("loginSection").style.display = "none";
+                document.getElementById("adminSection").style.display = "block";
+                
+                // Cargar datos existentes en los formularios
+                document.getElementById("pageTitle").value = generalSettings.pageTitle;
+                document.getElementById("promoBanner").value = generalSettings.promoBanner;
+                document.getElementById("dateRange").value = generalSettings.dateRange;
+                document.getElementById("whatsappNumber").value = generalSettings.whatsappNumber;
+                document.getElementById("whatsappMessage").value = generalSettings.whatsappMessage;
+                
+                // Cargar productos y categorías en el panel de administración
+                loadProductsForAdmin();
+                loadCustomCategories();
+            } else {
+                alert("Contraseña incorrecta. Intente nuevamente.");
+            }
+        }
+
+        // Función para obtener el nombre de la categoría
+        function getCategoryName(categoryId) {
+            const category = generalSettings.customCategories.find(c => c.id === categoryId);
+            return category ? category.name : categoryId;
+        }
+
+        // Función para obtener el estilo de la categoría
+        function getCategoryStyle(categoryId) {
+            const category = generalSettings.customCategories.find(c => c.id === categoryId);
+            if (category) {
+                return `background: ${category.bgColor}; color: ${category.color}; border: 1px solid ${category.borderColor};`;
+            }
+            return "";
+        }
+
+        // Función para cargar productos en el panel de administración
+        function loadProductsForAdmin() {
+            const productControls = document.getElementById("productControls");
+            productControls.innerHTML = "";
+            
+            productsData.forEach(product => {
+                const productItem = document.createElement("div");
+                productItem.className = "product-item";
+                productItem.innerHTML = `
+                    <div class="admin-form-group">
+                        <label>Nombre del Producto:</label>
+                        <input type="text" value="${escapeHtml(product.name)}" data-field="name" data-id="${product.id}">
+                    </div>
+                    <div class="admin-form-group">
+                        <label>Categoría:</label>
+                        <select data-field="category" data-id="${product.id}">
+                            ${generalSettings.customCategories.map(cat => 
+                                `<option value="${cat.id}" ${product.category === cat.id ? "selected" : ""}>${cat.name}</option>`
+                            ).join('')}
+                        </select>
+                    </div>
+                    <div class="admin-form-group">
+                        <label>Imagen (URL):</label>
+                        <input type="text" value="${escapeHtml(product.image)}" data-field="image" data-id="${product.id}">
+                    </div>
+                    <div class="admin-form-group">
+                        <label>Precio:</label>
+                        <input type="text" value="${escapeHtml(product.price)}" data-field="price" data-id="${product.id}">
+                    </div>
+                    <div class="admin-form-group">
+                        <label>Precio Anterior:</label>
+                        <input type="text" value="${escapeHtml(product.oldPrice)}" data-field="oldPrice" data-id="${product.id}">
+                    </div>
+                    <div class="admin-form-group">
+                        <label>Etiqueta Promocional:</label>
+                        <input type="text" value="${escapeHtml(product.badge)}" data-field="badge" data-id="${product.id}">
+                    </div>
+                    <div class="admin-form-group">
+                        <label>
+                            <input type="checkbox" ${product.soldOut ? "checked" : ""} data-field="soldOut" data-id="${product.id}">
+                            Producto Agotado
+                        </label>
+                    </div>
+                    <button class="remove-product-btn" onclick="removeProduct(${product.id})">Eliminar</button>
+                `;
+                productControls.appendChild(productItem);
+            });
+        }
+
+        // Función para cargar categorías personalizadas en el panel de administración
+        function loadCustomCategories() {
+            const customCategoriesContainer = document.getElementById("customCategories");
+            customCategoriesContainer.innerHTML = "";
+            
+            generalSettings.customCategories.forEach(category => {
+                const categoryItem = document.createElement("div");
+                categoryItem.className = "custom-category-item";
+                categoryItem.innerHTML = `
+                    <input type="text" value="${escapeHtml(category.name)}" data-field="name" data-id="${category.id}" placeholder="Nombre categoría">
+                    <input type="color" value="${category.color}" data-field="color" data-id="${category.id}" title="Color del texto">
+                    <input type="color" value="${category.bgColor}" data-field="bgColor" data-id="${category.id}" title="Color de fondo">
+                    <input type="color" value="${category.borderColor}" data-field="borderColor" data-id="${category.id}" title="Color del borde">
+                    <button class="remove-category-btn" onclick="removeCategory('${category.id}')">X</button>
+                `;
+                customCategoriesContainer.appendChild(categoryItem);
+            });
+        }
+
+        // Función para guardar la configuración general
+        function saveGeneralSettings() {
+            generalSettings.pageTitle = document.getElementById("pageTitle").value;
+            generalSettings.promoBanner = document.getElementById("promoBanner").value;
+            generalSettings.dateRange = document.getElementById("dateRange").value;
+            
+            // Guardar en localStorage
+            localStorage.setItem('foreverBeautySettings', JSON.stringify(generalSettings));
+            
+            // Actualizar la página con los nuevos valores
+            updatePageFromSettings();
+            
+            alert("Configuración general guardada correctamente.");
+        }
+
+        // Función para actualizar la página con la configuración actual
+        function updatePageFromSettings() {
+            document.getElementById("mainTitle").textContent = generalSettings.pageTitle;
+            document.getElementById("promoBannerElement").innerHTML = generalSettings.promoBanner.replace("OFERTA", "<strong>OFERTA</strong>");
+            document.getElementById("dateRangeText").textContent = generalSettings.dateRange;
+            
+            // Actualizar el enlace de WhatsApp flotante
+            const whatsappFloat = document.getElementById("whatsappFloat");
+            whatsappFloat.href = `https://wa.me/${generalSettings.whatsappNumber}?text=${encodeURIComponent("¡Hola! Quiero aprovechar los descuentos de Forever Beauty")}`;
+            
+            // Reconstruir los filtros de categoría
+            rebuildCategoryFilters();
+        }
+
+        // Función para reconstruir los filtros de categoría
+        function rebuildCategoryFilters() {
+            const filtersContainer = document.getElementById("categoryFilters");
+            filtersContainer.innerHTML = '';
+            
+            // Botón "Todos"
+            const allButton = document.createElement("button");
+            allButton.className = "filter-btn active";
+            allButton.setAttribute("data-filter", "all");
+            allButton.textContent = "Todos";
+            filtersContainer.appendChild(allButton);
+            
+            // Botones para cada categoría
+            generalSettings.customCategories.forEach(category => {
+                const button = document.createElement("button");
+                button.className = "filter-btn";
+                button.setAttribute("data-filter", category.id);
+                button.textContent = category.name;
+                filtersContainer.appendChild(button);
+            });
+            
+            // Volver a configurar los eventos de los filtros
+            setupFilters();
+        }
+
+        // Función para guardar la configuración de WhatsApp
+        function saveWhatsappSettings() {
+            generalSettings.whatsappNumber = document.getElementById("whatsappNumber").value;
+            generalSettings.whatsappMessage = document.getElementById("whatsappMessage").value;
+            
+            // Guardar en localStorage
+            localStorage.setItem('foreverBeautySettings', JSON.stringify(generalSettings));
+            
+            // Actualizar el enlace de WhatsApp flotante
+            const whatsappFloat = document.getElementById("whatsappFloat");
+            whatsappFloat.href = `https://wa.me/${generalSettings.whatsappNumber}?text=${encodeURIComponent("¡Hola! Quiero aprovechar los descuentos de Forever Beauty")}`;
+            
+            alert("Configuración de WhatsApp guardada correctamente.");
+        }
+
+        // Función para actualizar los productos cuando se modifican en el panel
+        function updateProductInGrid(productId) {
+            const product = productsData.find(p => p.id === productId);
+            if (!product) return;
+            
+            const productElement = document.querySelector(`.product[data-id="${productId}"]`);
+            if (!productElement) return;
+            
+            // Actualizar todos los campos del producto
+            productElement.setAttribute("data-category", product.category);
+            productElement.querySelector(".product-name").textContent = product.name;
+            
+            const imgElement = productElement.querySelector("img");
+            imgElement.alt = product.name;
+            imgElement.src = product.image;
+            
+            // Actualizar etiqueta promocional
+            const badgeElement = productElement.querySelector(".sales-badge");
+            if (badgeElement) {
+                badgeElement.textContent = product.badge;
+            }
+            
+            // Actualizar estado "Agotado"
+            const soldOutBadge = productElement.querySelector(".sold-out-badge");
+            if (product.soldOut) {
+                if (!soldOutBadge) {
+                    const newBadge = document.createElement("span");
+                    newBadge.className = "sold-out-badge";
+                    newBadge.textContent = "AGOTADO";
+                    productElement.insertBefore(newBadge, productElement.firstChild);
+                }
+            } else if (soldOutBadge) {
+                soldOutBadge.remove();
+            }
+            
+            // Actualizar categoría
+            const categorySpan = productElement.querySelector(".product-category");
+            categorySpan.textContent = getCategoryName(product.category);
+            categorySpan.setAttribute("style", getCategoryStyle(product.category));
+            
+            // Actualizar precios
+            productElement.querySelector(".product-price").innerHTML = 
+                `<span class="price-symbol">S/.</span>${escapeHtml(product.price)} <span class="old-price">S/. ${escapeHtml(product.oldPrice)}</span>`;
+            
+            // Actualizar eventos de WhatsApp
+            const whatsappButtons = productElement.querySelectorAll(".quick-order");
+            whatsappButtons.forEach(btn => {
+                btn.onclick = function() { orderProduct(product.name, product.price); };
+            });
+            
+            // Actualizar evento de la imagen
+            imgElement.onclick = function() { orderProduct(product.name, product.price); };
+        }
+
+        // Función para eliminar un producto
+        function removeProduct(productId) {
+            if (confirm("¿Estás seguro de que deseas eliminar este producto?")) {
+                productsData = productsData.filter(p => p.id !== productId);
+                localStorage.setItem('foreverBeautyProducts', JSON.stringify(productsData));
+                
+                const productElement = document.querySelector(`.product[data-id="${productId}"]`);
+                if (productElement) {
+                    productElement.remove();
+                }
+                loadProductsForAdmin();
+            }
+        }
+
+        // Función para agregar un nuevo producto
+        function addNewProduct() {
+            const newId = productsData.length > 0 ? Math.max(...productsData.map(p => p.id)) + 1 : 1;
+            
+            const newProduct = {
+                id: newId,
+                name: "Nuevo Producto",
+                category: generalSettings.customCategories.length > 0 ? generalSettings.customCategories[0].id : "skincare",
+                image: "producto-default.jpg",
+                price: "99.90",
+                oldPrice: "149.00",
+                badge: "🆕 Nuevo",
+                soldOut: false
+            };
+            
+            productsData.push(newProduct);
+            localStorage.setItem('foreverBeautyProducts', JSON.stringify(productsData));
+            
+            // Agregar el producto al grid
+            const productGrid = document.getElementById("productGrid");
+            const newProductElement = document.createElement("div");
+            newProductElement.className = "product";
+            newProductElement.setAttribute("data-category", newProduct.category);
+            newProductElement.setAttribute("data-id", newProduct.id);
+            newProductElement.innerHTML = `
+                ${newProduct.soldOut ? '<span class="sold-out-badge">AGOTADO</span>' : ''}
+                <span class="sales-badge">${escapeHtml(newProduct.badge)}</span>
+                <img src="${escapeHtml(newProduct.image)}" alt="${escapeHtml(newProduct.name)}" onclick="orderProduct('${escapeHtml(newProduct.name)}', '${escapeHtml(newProduct.price)}')">
+                <div class="product-name">${escapeHtml(newProduct.name)}</div>
+                <span class="product-category" style="${getCategoryStyle(newProduct.category)}">${getCategoryName(newProduct.category)}</span>
+                <div class="product-price"><span class="price-symbol">S/.</span>${escapeHtml(newProduct.price)} <span class="old-price">S/. ${escapeHtml(newProduct.oldPrice)}</span></div>
+                
+                <div class="product-buttons">
+                    <button class="quick-order" onclick="orderProduct('${escapeHtml(newProduct.name)}', '${escapeHtml(newProduct.price)}')">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+                        Pedir por WhatsApp
+                    </button>
+                </div>
+            `;
+            productGrid.appendChild(newProductElement);
+            
+            // Recargar el panel de administración
+            loadProductsForAdmin();
+        }
+
+        // Función para agregar una nueva categoría
+        function addNewCategory() {
+            const newId = "custom-" + Math.random().toString(36).substr(2, 8);
+            const newCategory = {
+                id: newId,
+                name: "Nueva Categoría",
+                color: "#000000",
+                bgColor: "#ffffff",
+                borderColor: "#cccccc"
+            };
+            
+            generalSettings.customCategories.push(newCategory);
+            localStorage.setItem('foreverBeautySettings', JSON.stringify(generalSettings));
+            
+            // Actualizar la página
+            rebuildCategoryFilters();
+            loadCustomCategories();
+            reloadProductsWithNewCategories();
+        }
+
+        // Función para eliminar una categoría
+        function removeCategory(categoryId) {
+            if (confirm("¿Estás seguro de que deseas eliminar esta categoría? Los productos en esta categoría quedarán sin categoría asignada.")) {
+                generalSettings.customCategories = generalSettings.customCategories.filter(c => c.id !== categoryId);
+                localStorage.setItem('foreverBeautySettings', JSON.stringify(generalSettings));
+                
+                // Actualizar la página
+                rebuildCategoryFilters();
+                loadCustomCategories();
+            }
+        }
+
+        // Función para recargar los productos con las nuevas categorías
+        function reloadProductsWithNewCategories() {
+            const productGrid = document.getElementById("productGrid");
+            productGrid.innerHTML = "";
+            
+            productsData.forEach(product => {
+                const productElement = document.createElement("div");
+                productElement.className = "product";
+                productElement.setAttribute("data-category", product.category);
+                productElement.setAttribute("data-id", product.id);
+                productElement.innerHTML = `
+                    ${product.soldOut ? '<span class="sold-out-badge">AGOTADO</span>' : ''}
+                    <span class="sales-badge">${escapeHtml(product.badge)}</span>
+                    <img src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}" onclick="orderProduct('${escapeHtml(product.name)}', '${escapeHtml(product.price)}')">
+                    <div class="product-name">${escapeHtml(product.name)}</div>
+                    <span class="product-category" style="${getCategoryStyle(product.category)}">${getCategoryName(product.category)}</span>
+                    <div class="product-price"><span class="price-symbol">S/.</span>${escapeHtml(product.price)} <span class="old-price">S/. ${escapeHtml(product.oldPrice)}</span></div>
+                    
+                    <div class="product-buttons">
+                        <button class="quick-order" onclick="orderProduct('${escapeHtml(product.name)}', '${escapeHtml(product.price)}')">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+                            Pedir por WhatsApp
+                        </button>
+                    </div>
+                `;
+                productGrid.appendChild(productElement);
+            });
+        }
+
+        // Función para enviar mensaje de WhatsApp con el producto seleccionado
+        function orderProduct(productName, price) {
+            const message = generalSettings.whatsappMessage
+                .replace("{producto}", productName)
+                .replace("{precio}", price);
+                
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/${generalSettings.whatsappNumber}?text=${encodedMessage}`, '_blank');
+        }
+
+        // Función para exportar un backup de todos los datos
+        function exportBackup() {
+            const backupData = {
+                settings: generalSettings,
+                products: productsData,
+                version: "1.0",
+                exportedAt: new Date().toISOString()
+            };
+            
+            const dataStr = JSON.stringify(backupData, null, 2);
+            const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+            
+            const exportName = `forever-beauty-backup-${new Date().toISOString().slice(0,10)}.json`;
+            
+            const linkElement = document.createElement('a');
+            linkElement.setAttribute('href', dataUri);
+            linkElement.setAttribute('download', exportName);
+            linkElement.click();
+            
+            alert("Backup exportado correctamente.");
+        }
+        
+        // Función para importar un backup
+        function importBackup(input) {
+            const file = input.files[0];
+            if (!file) return;
+            
+            if (confirm("¿Estás seguro de que deseas importar este backup? Todos los datos actuales serán reemplazados.")) {
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    try {
+                        const backupData = JSON.parse(e.target.result);
+                        
+                        // Validar el formato del backup
+                        if (!backupData.settings || typeof backupData.settings !== 'object') {
+                            throw new Error("Configuración inválida en el backup");
+                        }
+                        if (!backupData.products || !Array.isArray(backupData.products)) {
+                            throw new Error("Productos inválidos en el backup");
+                        }
+                        
+                        // Actualizar los datos
+                        generalSettings = backupData.settings;
+                        productsData = backupData.products;
+                        
+                        // Guardar en localStorage
+                        localStorage.setItem('foreverBeautySettings', JSON.stringify(generalSettings));
+                        localStorage.setItem('foreverBeautyProducts', JSON.stringify(productsData));
+                        
+                        // Aplicar los cambios
+                        updatePageFromSettings();
+                        
+                        // Reconstruir la lista de productos
+                        reloadProductsWithNewCategories();
+                        
+                        // Recargar el panel de administración
+                        if (document.getElementById("adminSection").style.display === "block") {
+                            loadProductsForAdmin();
+                            loadCustomCategories();
+                        }
+                        
+                        alert("Backup importado correctamente. Se han restaurado todos los datos.");
+                    } catch (error) {
+                        console.error("Error al importar backup:", error);
+                        alert(`Error al importar el backup: ${error.message}`);
+                    }
+                };
+                
+                reader.onerror = function() {
+                    alert("Error al leer el archivo");
+                };
+                
+                reader.readAsText(file);
+            }
+            
+            // Resetear el input para permitir importar el mismo archivo otra vez si es necesario
+            input.value = '';
+        }
+
+        // Configurar filtros de productos
+        function setupFilters() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remover clase active de todos los botones
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Agregar clase active al botón clickeado
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    const products = document.querySelectorAll('.product');
+                    
+                    products.forEach(product => {
+                        product.style.display = (filterValue === 'all' || 
+                                              product.getAttribute('data-category') === filterValue) 
+                                              ? 'block' : 'none';
+                    });
+                });
+            });
+        }
+
+        // Cargar los productos al iniciar la página
+        function loadInitialProducts() {
+            const productGrid = document.getElementById("productGrid");
+            productGrid.innerHTML = "";
+            
+            productsData.forEach(product => {
+                const productElement = document.createElement("div");
+                productElement.className = "product";
+                productElement.setAttribute("data-category", product.category);
+                productElement.setAttribute("data-id", product.id);
+                productElement.innerHTML = `
+                    ${product.soldOut ? '<span class="sold-out-badge">AGOTADO</span>' : ''}
+                    <span class="sales-badge">${escapeHtml(product.badge)}</span>
+                    <img src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}" onclick="orderProduct('${escapeHtml(product.name)}', '${escapeHtml(product.price)}')">
+                    <div class="product-name">${escapeHtml(product.name)}</div>
+                    <span class="product-category" style="${getCategoryStyle(product.category)}">${getCategoryName(product.category)}</span>
+                    <div class="product-price"><span class="price-symbol">S/.</span>${escapeHtml(product.price)} <span class="old-price">S/. ${escapeHtml(product.oldPrice)}</span></div>
+                    
+                    <div class="product-buttons">
+                        <button class="quick-order" onclick="orderProduct('${escapeHtml(product.name)}', '${escapeHtml(product.price)}')">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+                            Pedir por WhatsApp
+                        </button>
+                    </div>
+                `;
+                productGrid.appendChild(productElement);
+            });
+        }
+
+        // Escuchar cambios en los campos de producto
+        document.addEventListener('input', function(e) {
+            if (e.target.hasAttribute('data-field') && e.target.hasAttribute('data-id')) {
+                const element = e.target;
+                const productId = parseInt(element.getAttribute('data-id'));
+                const field = element.getAttribute('data-field');
+                let value = element.value;
+                
+                // Manejar campos especiales
+                if (element.type === 'checkbox') {
+                    value = element.checked;
+                }
+                
+                // Actualizar producto en productsData
+                const product = productsData.find(p => p.id === productId);
+                if (product) {
+                    product[field] = value;
+                    localStorage.setItem('foreverBeautyProducts', JSON.stringify(productsData));
+                    updateProductInGrid(productId);
+                }
+                
+                // Actualizar categorías personalizadas
+                const categoryItem = element.closest('.custom-category-item');
+                if (categoryItem) {
+                    const categoryId = element.getAttribute('data-id');
+                    const category = generalSettings.customCategories.find(c => c.id === categoryId);
+                    if (category) {
+                        category[field] = value;
+                        localStorage.setItem('foreverBeautySettings', JSON.stringify(generalSettings));
+                        
+                        // Actualizar visualización de categorías
+                        rebuildCategoryFilters();
+                        reloadProductsWithNewCategories();
+                    }
+                }
+            }
+        });
+
+        // Inicialización cuando el DOM está listo
+        document.addEventListener('DOMContentLoaded', function() {
+            // Cargar configuración y productos
+            updatePageFromSettings();
+            loadInitialProducts();
+            setupFilters();
+            
+            // Configurar evento para Enter en la contraseña
+            document.getElementById('adminPassword').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    loginAdmin();
+                }
+            });
+        });
+    </script>
+
+<script>
+    function clearLocalStorage() {
+        if (confirm("¿ESTÁS SEGURO? Esto borrará TODOS los productos y configuraciones almacenados. Esta acción no se puede deshacer.")) {
+            localStorage.removeItem('foreverBeautyProducts');
+            localStorage.removeItem('foreverBeautySettings');
+            
+            // Recargar la página para aplicar los cambios
+            location.reload();
+        }
+    }
+</script>
+</body>
+</html>
