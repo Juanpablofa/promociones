@@ -368,6 +368,29 @@
         .admin-save-btn:hover {
             background: #b52a5a;
         }
+
+.close-admin-panel {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: #f44336;
+    color: white;
+    border: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.close-admin-panel:hover {
+    background: #d32f2f;
+}
         
         .product-controls {
             background: #f9f9f9;
@@ -559,6 +582,7 @@
     <div class="admin-panel">
         <button class="admin-btn" onclick="toggleAdminPanel()">Panel de Control</button>
         <div class="admin-panel-content" id="adminPanel">
+<button class="close-admin-panel" onclick="toggleAdminPanel()" title="Cerrar panel">×</button>
             <div id="loginSection">
                 <h3>Acceso al Panel</h3>
                 <div class="login-form">
