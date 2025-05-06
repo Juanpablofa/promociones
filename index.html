@@ -120,14 +120,17 @@
         
         .product-name {
             margin: 6px 0;
-            font-weight: bold;
-            color: #333;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 40px;
-        }
+    font-weight: bold;
+    color: #333;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    white-space: pre-line; /* Esto permite que los saltos de línea se muestren */
+    text-align: center;
+    line-height: 1.3;
+}
         
         /* Categorías mejoradas */
         .product-category {
@@ -951,7 +954,7 @@
                 productItem.innerHTML = `
                     <div class="admin-form-group">
                         <label>Nombre del Producto:</label>
-                        <input type="text" value="${escapeHtml(product.name)}" data-field="name" data-id="${product.id}">
+                        <textarea data-field="name" data-id="${product.id}" rows="2">${escapeHtml(product.name)}</textarea>
                     </div>
                     <div class="admin-form-group">
                         <label>Categoría:</label>
@@ -1079,16 +1082,15 @@
 
         // Función para actualizar los productos cuando se modifican en el panel
         function updateProductInGrid(productId) {
-            const product = productsData.find(p => p.id === productId);
-            if (!product) return;
-            
-            const productElement = document.querySelector(`.product[data-id="${productId}"]`);
-            if (!productElement) return;
-            
-            // Actualizar todos los campos del producto
-            productElement.setAttribute("data-category", product.category);
-            productElement.querySelector(".product-name").textContent = product.name;
-            
+    const product = productsData.find(p => p.id === productId);
+    if (!product) return;
+    
+    const productElement = document.querySelector(`.product[data-id="${productId}"]`);
+    if (!productElement) return;
+    
+    // Actualizar todos los campos del producto
+    productElement.setAttribute("data-category", product.category);
+    productElement.querySelector(".product-name").innerHTML = escapeHtml(product.name).replace(/\n/g, '<br>');
             const imgElement = productElement.querySelector("img");
             imgElement.alt = product.name;
             imgElement.src = product.image;
@@ -1224,32 +1226,32 @@
 
         // Función para recargar los productos con las nuevas categorías
         function reloadProductsWithNewCategories() {
-            const productGrid = document.getElementById("productGrid");
-            productGrid.innerHTML = "";
+           const productGrid = document.getElementById("productGrid");
+    productGrid.innerHTML = "";
+    
+    productsData.forEach(product => {
+        const productElement = document.createElement("div");
+        productElement.className = "product";
+        productElement.setAttribute("data-category", product.category);
+        productElement.setAttribute("data-id", product.id);
+        productElement.innerHTML = `
+            ${product.soldOut ? '<span class="sold-out-badge">AGOTADO</span>' : ''}
+            <span class="sales-badge">${escapeHtml(product.badge)}</span>
+            <img src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}" onclick="orderProduct('${escapeHtml(product.name.replace(/\n/g, ' '))}', '${escapeHtml(product.price)}')">
+            <div class="product-name">${escapeHtml(product.name).replace(/\n/g, '<br>')}</div>
+            <span class="product-category" style="${getCategoryStyle(product.category)}">${getCategoryName(product.category)}</span>
+            <div class="product-price"><span class="price-symbol">S/.</span>${escapeHtml(product.price)} <span class="old-price">S/. ${escapeHtml(product.oldPrice)}</span></div>
             
-            productsData.forEach(product => {
-                const productElement = document.createElement("div");
-                productElement.className = "product";
-                productElement.setAttribute("data-category", product.category);
-                productElement.setAttribute("data-id", product.id);
-                productElement.innerHTML = `
-                    ${product.soldOut ? '<span class="sold-out-badge">AGOTADO</span>' : ''}
-                    <span class="sales-badge">${escapeHtml(product.badge)}</span>
-                    <img src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}" onclick="orderProduct('${escapeHtml(product.name)}', '${escapeHtml(product.price)}')">
-                    <div class="product-name">${escapeHtml(product.name)}</div>
-                    <span class="product-category" style="${getCategoryStyle(product.category)}">${getCategoryName(product.category)}</span>
-                    <div class="product-price"><span class="price-symbol">S/.</span>${escapeHtml(product.price)} <span class="old-price">S/. ${escapeHtml(product.oldPrice)}</span></div>
-                    
-                    <div class="product-buttons">
-                        <button class="quick-order" onclick="orderProduct('${escapeHtml(product.name)}', '${escapeHtml(product.price)}')">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-                            Pedir por WhatsApp
-                        </button>
-                    </div>
-                `;
-                productGrid.appendChild(productElement);
-            });
-        }
+            <div class="product-buttons">
+                <button class="quick-order" onclick="orderProduct('${escapeHtml(product.name.replace(/\n/g, ' '))}', '${escapeHtml(product.price)}')">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+                    Pedir por WhatsApp
+                </button>
+            </div>
+        `;
+        productGrid.appendChild(productElement);
+    });
+}
 
         // Función para enviar mensaje de WhatsApp con el producto seleccionado
         function orderProduct(productName, price) {
@@ -1365,33 +1367,33 @@
         }
 
         // Cargar los productos al iniciar la página
-        function loadInitialProducts() {
-            const productGrid = document.getElementById("productGrid");
-            productGrid.innerHTML = "";
+       function loadInitialProducts() {
+    const productGrid = document.getElementById("productGrid");
+    productGrid.innerHTML = "";
+    
+    productsData.forEach(product => {
+        const productElement = document.createElement("div");
+        productElement.className = "product";
+        productElement.setAttribute("data-category", product.category);
+        productElement.setAttribute("data-id", product.id);
+        productElement.innerHTML = `
+            ${product.soldOut ? '<span class="sold-out-badge">AGOTADO</span>' : ''}
+            <span class="sales-badge">${escapeHtml(product.badge)}</span>
+            <img src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}" onclick="orderProduct('${escapeHtml(product.name.replace(/\n/g, ' '))}', '${escapeHtml(product.price)}')">
+            <div class="product-name">${escapeHtml(product.name).replace(/\n/g, '<br>')}</div>
+            <span class="product-category" style="${getCategoryStyle(product.category)}">${getCategoryName(product.category)}</span>
+            <div class="product-price"><span class="price-symbol">S/.</span>${escapeHtml(product.price)} <span class="old-price">S/. ${escapeHtml(product.oldPrice)}</span></div>
             
-            productsData.forEach(product => {
-                const productElement = document.createElement("div");
-                productElement.className = "product";
-                productElement.setAttribute("data-category", product.category);
-                productElement.setAttribute("data-id", product.id);
-                productElement.innerHTML = `
-                    ${product.soldOut ? '<span class="sold-out-badge">AGOTADO</span>' : ''}
-                    <span class="sales-badge">${escapeHtml(product.badge)}</span>
-                    <img src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}" onclick="orderProduct('${escapeHtml(product.name)}', '${escapeHtml(product.price)}')">
-                    <div class="product-name">${escapeHtml(product.name)}</div>
-                    <span class="product-category" style="${getCategoryStyle(product.category)}">${getCategoryName(product.category)}</span>
-                    <div class="product-price"><span class="price-symbol">S/.</span>${escapeHtml(product.price)} <span class="old-price">S/. ${escapeHtml(product.oldPrice)}</span></div>
-                    
-                    <div class="product-buttons">
-                        <button class="quick-order" onclick="orderProduct('${escapeHtml(product.name)}', '${escapeHtml(product.price)}')">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-                            Pedir por WhatsApp
-                        </button>
-                    </div>
-                `;
-                productGrid.appendChild(productElement);
-            });
-        }
+            <div class="product-buttons">
+                <button class="quick-order" onclick="orderProduct('${escapeHtml(product.name.replace(/\n/g, ' '))}', '${escapeHtml(product.price)}')">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+                    Pedir por WhatsApp
+                </button>
+            </div>
+        `;
+        productGrid.appendChild(productElement);
+    });
+}
 
         // Escuchar cambios en los campos de producto
         document.addEventListener('input', function(e) {
