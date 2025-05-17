@@ -5,6 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forever Beauty | Descuentos en Cosmética y Cuidado Personal | Perú</title>
     <meta name="description" content="¡Descuentos semanales en cosméticos y productos de belleza! Envíos a todo Perú. Compra seguro con garantía Forever Beauty.">
+<!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+<meta property="og:url" content="https://foreverbeautydescuentos.github.io/semanal/">
+<meta property="og:title" content="Forever Beauty | Descuentos en Cosmética y Cuidado Personal | Perú">
+<meta property="og:description" content="¡Descuentos semanales en cosméticos y productos de belleza! Envíos a todo Perú. Compra seguro con garantía Forever Beauty.">
+<meta property="og:image" content="https://foreverbeautydescuentos.github.io/semanal/logo.jpg">
+    <link rel="icon" href="logo.jpg" type="image/jpeg">
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -118,18 +142,19 @@
             cursor: pointer;
         }
         
-        .product-name {
-            margin: 6px 0;
+      .product-name {
+    margin: 6px 0;
     font-weight: bold;
     color: #333;
-    font-size: 14px;
+    font-size: 18px; /* Tamaño aumentado */
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 40px;
-    white-space: pre-line; /* Esto permite que los saltos de línea se muestren */
+    white-space: pre-line;
     text-align: center;
     line-height: 1.3;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
 }
         
         /* Categorías mejoradas */
@@ -149,24 +174,25 @@
         .category-makeup { background: #f3e5f5; color: #7b1fa2; border: 1px solid #e1bee7; }
         .category-hair { background: #fff8e1; color: #ff8f00; border: 1px solid #ffecb3; }
         
-        .product-price {
-            color: #d23369;
-            font-weight: bold;
-            font-size: 16px;
-            margin: 6px 0 8px;
-        }
-        
+    .product-price {
+    color: #d23369;
+    font-weight: bold;
+    font-size: 44px; /* Tamaño aumentado */
+    margin: 6px 0 8px;
+    text-shadow: 0 1px 2px rgba(210, 51, 105, 0.2);
+}
+
         .price-symbol {
             font-size: 0.9em;
             margin-right: 2px;
         }
         
-        .old-price {
-            text-decoration: line-through;
-            color: #999;
-            font-size: 13px;
-            display: block;
-        }
+       .old-price {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 16px; /* Tamaño aumentado */
+    display: block;
+}
         
         .sales-badge {
             background: #ffeb3b;
@@ -178,18 +204,38 @@
             margin-bottom: 4px;
         }
         
-        .sold-out-badge {
-            background: #f44336;
-            color: white;
-            padding: 2px 6px;
-            border-radius: 8px;
-            font-size: 20px;
-            display: inline-block;
-            margin-bottom: 4px;
-            position: absolute;
-            top: 8px;
-            right: 8px;
-        }
+       .sold-out-badge {
+    background: #f44336;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 8px;
+    font-size: 20px;
+    display: inline-block;
+    margin-bottom: 4px;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    animation: heartbeat 1.5s infinite;
+    transform-origin: center;
+}
+
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.1);
+    }
+    50% {
+        transform: scale(1);
+    }
+    75% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
         
         .product-buttons {
             margin-top: 12px;
@@ -368,29 +414,6 @@
         .admin-save-btn:hover {
             background: #b52a5a;
         }
-
-.close-admin-panel {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    background: #f44336;
-    color: white;
-    border: none;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1;
-}
-
-.close-admin-panel:hover {
-    background: #d32f2f;
-}
         
         .product-controls {
             background: #f9f9f9;
@@ -575,26 +598,92 @@
                 left: 10px;
             }
         }
+
+
+
+
+/* Estilo para las imágenes con marca de agua */
+.product-image-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;     /* Asegura que el contenedor ocupe todo el ancho */
+}
+
+.product-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    border: 1px solid #f0f0f0;
+    cursor: pointer;
+}
+
+.watermark {
+    position: absolute;
+    top: 10px;       /* Cambiado de bottom a top */
+    right: 10px;
+    opacity: 0.7;
+    width: 25%;
+    max-width: 80px;
+    pointer-events: none;
+    filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.3)); /* Opcional: sombra para mejor visibilidad */
+}
+
+  /* Estilo para el número de producto */
+        .product-number {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            background: #d23369;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            z-index: 1;
+        }
+        
+        /* Estilo para productos ocultos en el panel de admin */
+        .product-item.hidden-product {
+            opacity: 0.6;
+            background: #f9f9f9;
+            border-left: 3px solid #f44336;
+        }
+
     </style>
 </head>
 <body>
     <!-- Botón de acceso al panel de administración -->
     <div class="admin-panel">
-        <button class="admin-btn" onclick="toggleAdminPanel()">Panel de Control</button>
-        <div class="admin-panel-content" id="adminPanel">
-<button class="close-admin-panel" onclick="toggleAdminPanel()" title="Cerrar panel">×</button>
-            <div id="loginSection">
-                <h3>Acceso al Panel</h3>
-                <div class="login-form">
-                    <div class="admin-form-group">
-                        <label for="adminPassword">Contraseña:</label>
-                        <input type="password" id="adminPassword" placeholder="Ingrese la contraseña">
-                    </div>
-                    <button class="admin-save-btn" onclick="loginAdmin()">Ingresar</button>
+    <button class="admin-btn" onclick="toggleAdminPanel()" title="Panel de Control">Panel de Control</button>
+
+<!-- Botón de acceso al panel de administración -->
+<div class="admin-panel">
+    <button class="admin-btn" onclick="toggleAdminPanel()" title="Panel de Control">Panel de Control</button>
+
+    <!-- Panel de control -->
+   <div class="admin-panel-content" id="adminPanel" style="display:none;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px;">
+        <h3 style="margin: 0;">Panel de Control Forever Beauty</h3>
+        <button onclick="toggleAdminPanel()" style="background: #f44336; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-weight: bold;">✕ Cerrar y Actualizar</button>
+    </div>
+        <div id="loginSection">
+            <h3>Acceso al Panel</h3>
+            <div class="login-form">
+                <div class="admin-form-group">
+                    <label for="adminPassword">Contraseña:</label>
+                    <input type="password" id="adminPassword" placeholder="Ingrese la contraseña">
                 </div>
+                <button class="admin-save-btn" onclick="loginAdmin()">Ingresar</button>
             </div>
-            
-            <div id="adminSection" style="display:none;">
+        </div>
+        
+        <div id="adminSection" style="display:none;">
+
                 <h3>Panel de Control Forever Beauty</h3>
                 
                 <div class="admin-section">
@@ -614,24 +703,18 @@
                     <button class="admin-save-btn" onclick="saveGeneralSettings()">Guardar Configuración</button>
                 </div>
                 
-                <div class="admin-section">
-                    <h4>Administrar Productos</h4>
-                    <div class="product-controls" id="productControls">
-                        <!-- Los productos se cargarán aquí dinámicamente -->
-                    </div>
-                    <button class="add-product-btn" onclick="addNewProduct()">+ Agregar Nuevo Producto</button>
-                </div>
-                
-                <div class="admin-section">
-                    <h4>Administrar Categorías</h4>
-                    <div class="admin-form-group">
-                        <label>Categorías Actuales:</label>
-                        <div class="custom-categories" id="customCategories">
-                            <!-- Las categorías se cargarán aquí dinámicamente -->
-                        </div>
-                        <button class="add-category-btn" onclick="addNewCategory()">+ Agregar Categoría</button>
-                    </div>
-                </div>
+                 <div class="admin-section">
+        <h4>Administrar Productos</h4>
+        <div style="margin-bottom: 10px;">
+            <button class="filter-btn" onclick="filterAdminProducts('all')">Todos</button>
+            <button class="filter-btn" onclick="filterAdminProducts('visible')">Visibles</button>
+            <button class="filter-btn" onclick="filterAdminProducts('hidden')">Ocultos</button>
+        </div>
+        <div class="product-controls" id="productControls">
+            <!-- Los productos se cargarán aquí dinámicamente -->
+        </div>
+        <button class="add-product-btn" onclick="addNewProduct()">+ Agregar Nuevo Producto</button>
+    </div>
                 
                 <div class="admin-section">
                     <h4>Configuración de WhatsApp</h4>
@@ -671,11 +754,43 @@
         <img src="logo.jpg" alt="Forever Beauty Logo" class="logo">
     </a>
     
+<br>
+
+<div style="display: flex; justify-content: center; gap: 20px; margin: 15px 0;">
+    <a href="https://www.facebook.com/ForeverBeautyDescuentos" target="_blank" class="social-badge" style="background: #1877F2; color: white; padding: 8px 15px; border-radius: 8px; font-size: 14px; font-weight: bold; text-decoration: none; animation: heartbeat 1.5s infinite; transform-origin: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" style="width: 16px; height: 16px; vertical-align: middle; filter: brightness(0) invert(1); margin-right: 5px;">
+        Facebook
+    </a>
+    <a href="https://whatsapp.com/channel/0029VbAlUu5CxoAx72kE1d3z" target="_blank" class="social-badge" style="background: #25D366; color: white; padding: 8px 15px; border-radius: 8px; font-size: 14px; font-weight: bold; text-decoration: none; animation: heartbeat 1.5s infinite; transform-origin: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 16px; height: 16px; vertical-align: middle; filter: brightness(0) invert(1); margin-right: 5px;">
+        Canal WhatsApp
+    </a>
+</div>
+
+<br>
+
+<div style="display: flex; justify-content: center; gap: 10px; margin: 15px 0; flex-wrap: wrap;">
+    <div style="position: relative; width: 60px; height: 60px; border-radius: 8px; overflow: hidden; box-shadow: 0 3px 10px rgba(0,0,0,0.08); animation: heartbeat 1.5s infinite; transform-origin: center;">
+        <img src="promo1.png" alt="Promoción 1" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+    <div style="position: relative; width: 60px; height: 60px; border-radius: 8px; overflow: hidden; box-shadow: 0 3px 10px rgba(0,0,0,0.08); animation: heartbeat 1.5s infinite; transform-origin: center;">
+        <img src="promo2.png" alt="Promoción 2" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+    <div style="position: relative; width: 60px; height: 60px; border-radius: 8px; overflow: hidden; box-shadow: 0 3px 10px rgba(0,0,0,0.08); animation: heartbeat 1.5s infinite; transform-origin: center;">
+        <img src="promo3.png" alt="Promoción 3" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+</div>
+
+<br>
+
     <div class="promo-banner" id="promoBannerElement">
         ⏰ <strong>OFERTA LIMITADA</strong> | Solo hasta agotar existencias
     </div>
     
     <p class="promo-text">Nuestros descuentos de la <span class="date-range" id="dateRangeText">Semana del 12 al 18 de Junio</span></p>
+
+ 
+
     
     <!-- Filtros por categoría -->
     <div class="filters" id="categoryFilters">
@@ -701,17 +816,18 @@
     </div>
 
     <script>
-        // Datos de productos (almacenados en localStorage)
+       // Datos de productos (modificado para incluir visibilidad)
         let productsData = JSON.parse(localStorage.getItem('foreverBeautyProducts')) || [
             {
                 id: 1,
-                name: "Suero de Ácido Hialurónico",
-                category: "skincare",
-                image: "producto1.jpg",
-                price: "79.90",
-                oldPrice: "120.00",
-                badge: "🔥 128 vendidos",
-                soldOut: false
+                "name": "Suero de Ácido Hialurónico\ncrema\njabon",
+                "category": "skincare",
+                "image": "producto1.jpg",
+                "price": "79.90",
+                "oldPrice": "120.00",
+                "badge": "🔥 128 vendidos",
+                "soldOut": false,
+                "visible": true
             },
             {
                 id: 2,
@@ -763,7 +879,7 @@
                 badge: "💇‍♀️ Recomendado",
                 soldOut: false
             },
-{
+            {
                 id: 7,
                 name: "Shampoo Reconstrucción Capilar",
                 category: "hair",
@@ -893,7 +1009,7 @@
                 badge: "💇‍♀️ Recomendado",
                 soldOut: false
             },
-    {
+{
                 id: 20,
                 name: "Shampoo Reconstrucción Capilar",
                 category: "hair",
@@ -1023,6 +1139,7 @@
                 badge: "💇‍♀️ Recomendado",
                 soldOut: false
             },
+            
         ];
 
         // Configuración general (almacenada en localStorage)
@@ -1054,10 +1171,20 @@
         }
 
         // Función para alternar la visibilidad del panel de administración
-        function toggleAdminPanel() {
-            const panel = document.getElementById("adminPanel");
-            panel.style.display = panel.style.display === "none" ? "block" : "none";
+         function toggleAdminPanel() {
+    const panel = document.getElementById("adminPanel");
+    if (panel.style.display === "none") {
+        panel.style.display = "block";
+    } else {
+        panel.style.display = "none";
+        // Solo recargar si estamos en la sección de admin (no en login)
+        if (document.getElementById("adminSection").style.display === "block") {
+            location.reload();
         }
+    }
+}
+
+  
 
         // Función para iniciar sesión en el panel de administración
         function loginAdmin() {
@@ -1097,15 +1224,33 @@
             return "";
         }
 
-        // Función para cargar productos en el panel de administración
-        function loadProductsForAdmin() {
+         // Función para cargar productos en el panel de administración (modificada)
+        function loadProductsForAdmin(filter = 'all') {
             const productControls = document.getElementById("productControls");
             productControls.innerHTML = "";
             
-            productsData.forEach(product => {
+            let filteredProducts = productsData;
+            
+            if (filter === 'visible') {
+                filteredProducts = productsData.filter(p => p.visible);
+            } else if (filter === 'hidden') {
+                filteredProducts = productsData.filter(p => !p.visible);
+            }
+            
+            filteredProducts.forEach(product => {
                 const productItem = document.createElement("div");
-                productItem.className = "product-item";
+                productItem.className = `product-item ${product.visible ? '' : 'hidden-product'}`;
                 productItem.innerHTML = `
+                    <div class="admin-form-group">
+                        <label>
+                            <input type="checkbox" ${product.visible ? "checked" : ""} data-field="visible" data-id="${product.id}">
+                            Producto Visible
+                        </label>
+                    </div>
+                    <div class="admin-form-group">
+                        <label>Número de Producto:</label>
+                        <input type="text" value="${product.id}" disabled>
+                    </div>
                     <div class="admin-form-group">
                         <label>Nombre del Producto:</label>
                         <textarea data-field="name" data-id="${product.id}" rows="2">${escapeHtml(product.name)}</textarea>
@@ -1145,6 +1290,15 @@
                 productControls.appendChild(productItem);
             });
         }
+
+ // Función para filtrar productos en el panel de administración
+        function filterAdminProducts(filterType) {
+            loadProductsForAdmin(filterType);
+        }
+
+
+
+
 
         // Función para cargar categorías personalizadas en el panel de administración
         function loadCustomCategories() {
@@ -1234,17 +1388,25 @@
             alert("Configuración de WhatsApp guardada correctamente.");
         }
 
-        // Función para actualizar los productos cuando se modifican en el panel
+      // Función para actualizar productos en el grid (modificada)
         function updateProductInGrid(productId) {
-    const product = productsData.find(p => p.id === productId);
-    if (!product) return;
-    
-    const productElement = document.querySelector(`.product[data-id="${productId}"]`);
-    if (!productElement) return;
-    
+            const product = productsData.find(p => p.id === productId);
+            if (!product) return;
+            
+            const productElement = document.querySelector(`.product[data-id="${productId}"]`);
+            if (!productElement) return;
+            
+            // Actualizar visibilidad
+            if (product.visible) {
+                productElement.classList.remove('hidden');
+            } else {
+                productElement.classList.add('hidden');
+            }
+
     // Actualizar todos los campos del producto
     productElement.setAttribute("data-category", product.category);
     productElement.querySelector(".product-name").innerHTML = escapeHtml(product.name).replace(/\n/g, '<br>');
+            
             const imgElement = productElement.querySelector("img");
             imgElement.alt = product.name;
             imgElement.src = product.image;
@@ -1301,7 +1463,7 @@
             }
         }
 
-        // Función para agregar un nuevo producto
+       // Función para agregar nuevo producto (modificada)
         function addNewProduct() {
             const newId = productsData.length > 0 ? Math.max(...productsData.map(p => p.id)) + 1 : 1;
             
@@ -1313,7 +1475,8 @@
                 price: "99.90",
                 oldPrice: "149.00",
                 badge: "🆕 Nuevo",
-                soldOut: false
+                soldOut: false,
+                visible: true
             };
             
             productsData.push(newProduct);
@@ -1328,7 +1491,10 @@
             newProductElement.innerHTML = `
                 ${newProduct.soldOut ? '<span class="sold-out-badge">AGOTADO</span>' : ''}
                 <span class="sales-badge">${escapeHtml(newProduct.badge)}</span>
-                <img src="${escapeHtml(newProduct.image)}" alt="${escapeHtml(newProduct.name)}" onclick="orderProduct('${escapeHtml(newProduct.name)}', '${escapeHtml(newProduct.price)}')">
+                <div class="product-image-container">
+    <img class="product-image" src="${escapeHtml(newProduct.image)}" alt="${escapeHtml(newProduct.name)}" onclick="orderProduct('${escapeHtml(newProduct.name)}', '${escapeHtml(newProduct.price)}')">
+    <img class="watermark" src="logo.jpg" alt="Forever Beauty">
+</div>
                 <div class="product-name">${escapeHtml(newProduct.name)}</div>
                 <span class="product-category" style="${getCategoryStyle(newProduct.category)}">${getCategoryName(newProduct.category)}</span>
                 <div class="product-price"><span class="price-symbol">S/.</span>${escapeHtml(newProduct.price)} <span class="old-price">S/. ${escapeHtml(newProduct.oldPrice)}</span></div>
@@ -1378,34 +1544,41 @@
             }
         }
 
-        // Función para recargar los productos con las nuevas categorías
+       // Función para recargar productos (modificada para mostrar solo visibles)
         function reloadProductsWithNewCategories() {
-           const productGrid = document.getElementById("productGrid");
-    productGrid.innerHTML = "";
-    
-    productsData.forEach(product => {
-        const productElement = document.createElement("div");
-        productElement.className = "product";
-        productElement.setAttribute("data-category", product.category);
-        productElement.setAttribute("data-id", product.id);
-        productElement.innerHTML = `
-            ${product.soldOut ? '<span class="sold-out-badge">AGOTADO</span>' : ''}
-            <span class="sales-badge">${escapeHtml(product.badge)}</span>
-            <img src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}" onclick="orderProduct('${escapeHtml(product.name.replace(/\n/g, ' '))}', '${escapeHtml(product.price)}')">
-            <div class="product-name">${escapeHtml(product.name).replace(/\n/g, '<br>')}</div>
-            <span class="product-category" style="${getCategoryStyle(product.category)}">${getCategoryName(product.category)}</span>
-            <div class="product-price"><span class="price-symbol">S/.</span>${escapeHtml(product.price)} <span class="old-price">S/. ${escapeHtml(product.oldPrice)}</span></div>
+            const productGrid = document.getElementById("productGrid");
+            productGrid.innerHTML = "";
             
-            <div class="product-buttons">
-                <button class="quick-order" onclick="orderProduct('${escapeHtml(product.name.replace(/\n/g, ' '))}', '${escapeHtml(product.price)}')">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-                    Pedir por WhatsApp
-                </button>
-            </div>
-        `;
-        productGrid.appendChild(productElement);
-    });
-}
+            // Filtrar solo productos visibles
+            const visibleProducts = productsData.filter(product => product.visible);
+            
+            visibleProducts.forEach(product => {
+                const productElement = document.createElement("div");
+                productElement.className = "product";
+                productElement.setAttribute("data-category", product.category);
+                productElement.setAttribute("data-id", product.id);
+                productElement.innerHTML = `
+                    <div class="product-number">${product.id}</div>
+                    ${product.soldOut ? '<span class="sold-out-badge">AGOTADO</span>' : ''}
+                    <span class="sales-badge">${escapeHtml(product.badge)}</span>
+                    <div class="product-image-container">
+                        <img class="product-image" src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}" onclick="orderProduct('${escapeHtml(product.name.replace(/\n/g, ' '))}', '${escapeHtml(product.price)}')">
+                        <img class="watermark" src="logo.jpg" alt="Forever Beauty">
+                    </div>
+                    <div class="product-name">${escapeHtml(product.name).replace(/\n/g, '<br>')}</div>
+                    <span class="product-category" style="${getCategoryStyle(product.category)}">${getCategoryName(product.category)}</span>
+                    <div class="product-price"><span class="price-symbol">S/.</span>${escapeHtml(product.price)} <span class="old-price">S/. ${escapeHtml(product.oldPrice)}</span></div>
+                    
+                    <div class="product-buttons">
+                        <button class="quick-order" onclick="orderProduct('${escapeHtml(product.name.replace(/\n/g, ' '))}', '${escapeHtml(product.price)}')">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+                            Pedir por WhatsApp
+                        </button>
+                    </div>
+                `;
+                productGrid.appendChild(productElement);
+            });
+        }
 
         // Función para enviar mensaje de WhatsApp con el producto seleccionado
         function orderProduct(productName, price) {
@@ -1520,34 +1693,43 @@
             });
         }
 
-        // Cargar los productos al iniciar la página
-       function loadInitialProducts() {
-    const productGrid = document.getElementById("productGrid");
-    productGrid.innerHTML = "";
-    
-    productsData.forEach(product => {
-        const productElement = document.createElement("div");
-        productElement.className = "product";
-        productElement.setAttribute("data-category", product.category);
-        productElement.setAttribute("data-id", product.id);
-        productElement.innerHTML = `
-            ${product.soldOut ? '<span class="sold-out-badge">AGOTADO</span>' : ''}
-            <span class="sales-badge">${escapeHtml(product.badge)}</span>
-            <img src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}" onclick="orderProduct('${escapeHtml(product.name.replace(/\n/g, ' '))}', '${escapeHtml(product.price)}')">
-            <div class="product-name">${escapeHtml(product.name).replace(/\n/g, '<br>')}</div>
-            <span class="product-category" style="${getCategoryStyle(product.category)}">${getCategoryName(product.category)}</span>
-            <div class="product-price"><span class="price-symbol">S/.</span>${escapeHtml(product.price)} <span class="old-price">S/. ${escapeHtml(product.oldPrice)}</span></div>
+       // Función para cargar productos iniciales (modificada)
+        // Función para cargar productos iniciales (modificada para mostrar solo visibles)
+        function loadInitialProducts() {
+            const productGrid = document.getElementById("productGrid");
+            productGrid.innerHTML = "";
             
-            <div class="product-buttons">
-                <button class="quick-order" onclick="orderProduct('${escapeHtml(product.name.replace(/\n/g, ' '))}', '${escapeHtml(product.price)}')">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-                    Pedir por WhatsApp
-                </button>
-            </div>
-        `;
-        productGrid.appendChild(productElement);
-    });
-}
+            // Filtrar solo productos visibles
+            const visibleProducts = productsData.filter(product => product.visible);
+            
+            visibleProducts.forEach(product => {
+                const productElement = document.createElement("div");
+                productElement.className = "product";
+                productElement.setAttribute("data-category", product.category);
+                productElement.setAttribute("data-id", product.id);
+                productElement.innerHTML = `
+                    <div class="product-number">${product.id}</div>
+                    ${product.soldOut ? '<span class="sold-out-badge">AGOTADO</span>' : ''}
+                    <span class="sales-badge">${escapeHtml(product.badge)}</span>
+                    <div class="product-image-container">
+                        <img class="product-image" src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}" onclick="orderProduct('${escapeHtml(product.name.replace(/\n/g, ' '))}', '${escapeHtml(product.price)}')">
+                        <img class="watermark" src="logo.jpg" alt="Forever Beauty">
+                    </div>
+                    <div class="product-name">${escapeHtml(product.name).replace(/\n/g, '<br>')}</div>
+                    <span class="product-category" style="${getCategoryStyle(product.category)}">${getCategoryName(product.category)}</span>
+                    <div class="product-price"><span class="price-symbol">S/.</span>${escapeHtml(product.price)} <span class="old-price">S/. ${escapeHtml(product.oldPrice)}</span></div>
+                    
+                    <div class="product-buttons">
+                        <button class="quick-order" onclick="orderProduct('${escapeHtml(product.name.replace(/\n/g, ' '))}', '${escapeHtml(product.price)}')">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+                            Pedir por WhatsApp
+                        </button>
+                    </div>
+                `;
+                productGrid.appendChild(productElement);
+            });
+        }
+
 
         // Escuchar cambios en los campos de producto
         document.addEventListener('input', function(e) {
