@@ -1244,11 +1244,16 @@
             whatsappMessage: "¡Hola Forever Beauty! Estoy interesad@ en el producto:\n\n*{producto}*\nPrecio: S/.{precio} ({unidades})\n\n¿Podrías darme más información? ¿Tienen envíos a mi distrito?",
             customCategories: [
                 {id: "skincare", name: "Cuidado Facial", color: "#1565c0", bgColor: "#e3f2fd", borderColor: "#bbdefb"},
-                {id: "makeup", name: "Maquillaje", color: "#7b1fa2", bgColor: "#f3e5f5", borderColor: "#e1bee7"},
-                {id: "perfume", name: "Perfume", color: "#2e7d32", bgColor: "#e8f5e9", borderColor: "#c8e6c9"},
-                {id: "hair", name: "Cuidado Capilar", color: "#ff8f00", bgColor: "#fff8e1", borderColor: "#ffecb3"}
-            ]
-        };
+        {id: "makeup", name: "Maquillaje", color: "#7b1fa2", bgColor: "#f3e5f5", borderColor: "#e1bee7"},
+        {id: "perfume-femenino", name: "Perfume Femenino", color: "#d23369", bgColor: "#ffebee", borderColor: "#ffcdd2"},
+        {id: "hair", name: "Cuidado Capilar", color: "#ff8f00", bgColor: "#fff8e1", borderColor: "#ffecb3"},
+        {id: "corporal", name: "Corporal", color: "#5d4037", bgColor: "#efebe9", borderColor: "#d7ccc8"},
+        {id: "bebe", name: "Bebé y Niños", color: "#00897b", bgColor: "#e0f2f1", borderColor: "#b2dfdb"},
+        {id: "desodorantes", name: "Desodorantes", color: "#6d4c41", bgColor: "#efebe7", borderColor: "#d7ccc8"},
+	{id: "Otros", name: "Otros", color: "#6d4c41", bgColor: "#efebe9", borderColor: "#d7ccc8"},
+        {id: "perfume-masculino", name: "Perfume Masculino", color: "#1976d2", bgColor: "#e3f2fd", borderColor: "#bbdefb"}
+    ]
+};
 
         // Contraseña simple para el panel de administración
         const ADMIN_PASSWORD = "";
@@ -1449,24 +1454,40 @@
 
         // Función para reconstruir los filtros de categoría
         function rebuildCategoryFilters() {
-            const filtersContainer = document.getElementById("categoryFilters");
-            filtersContainer.innerHTML = '';
-            
-            // Botón "Todos"
-            const allButton = document.createElement("button");
-            allButton.className = "filter-btn active";
-            allButton.setAttribute("data-filter", "all");
-            allButton.textContent = "Todos";
-            filtersContainer.appendChild(allButton);
-            
-            // Botones para cada categoría
-            generalSettings.customCategories.forEach(category => {
-                const button = document.createElement("button");
-                button.className = "filter-btn";
-                button.setAttribute("data-filter", category.id);
-                button.textContent = category.name;
-                filtersContainer.appendChild(button);
-            });
+    const filtersContainer = document.getElementById("categoryFilters");
+    filtersContainer.innerHTML = '';
+    
+    // Botón "Todos"
+    const allButton = document.createElement("button");
+    allButton.className = "filter-btn active";
+    allButton.setAttribute("data-filter", "all");
+    allButton.textContent = "Todos";
+    filtersContainer.appendChild(allButton);
+    
+    // Orden específico de categorías
+    const categoryOrder = [
+        "skincare", 
+        "makeup", 
+        "perfume-femenino", 
+        "hair", 
+        "corporal", 
+        "bebe", 
+        "desodorantes", 
+	"Otros",
+        "perfume-masculino"
+    ];
+    
+    // Mostrar solo las categorías especificadas en el orden deseado
+    categoryOrder.forEach(categoryId => {
+        const category = generalSettings.customCategories.find(c => c.id === categoryId);
+        if (category) {
+            const button = document.createElement("button");
+            button.className = "filter-btn";
+            button.setAttribute("data-filter", category.id);
+            button.textContent = category.name;
+            filtersContainer.appendChild(button);
+        }
+    });
             
             // Volver a configurar los eventos de los filtros
             setupFilters();
